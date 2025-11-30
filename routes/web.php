@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\StudentsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,3 +23,11 @@ Route::get('/', [ContactController::class, 'index'])->name('contacts.index');
 Route::get('/contacts/create', [ContactController::class, 'create'])->middleware('auth')->name('contacts.create');
 Route::post('/contacts', [ContactController::class, 'store'])->middleware('auth')->name('contacts.store');
 });
+Route::get('students/trashed', [StudentsController::class, 'trashed'])->name('students.trashed');
+
+
+Route::post('students/{id}/restore', [StudentsController::class, 'restore'])->name('students.restore');
+Route::delete('students/{id}/forceDelete', [StudentsController::class, 'forceDelete'])->name('students.forceDelete');
+//Route::get('/students', [StudentsController::class, 'index']);
+Route::resource('students', StudentsController::class);
+
