@@ -31,3 +31,4 @@ Route::delete('students/{id}/forceDelete', [StudentsController::class, 'forceDel
 //Route::get('/students', [StudentsController::class, 'index']);
 Route::resource('students', StudentsController::class);
 
+Route::get('/send-contacts-email', [ContactController::class, 'sendEmail'])->name('contacts.send.email');

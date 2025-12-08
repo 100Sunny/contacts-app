@@ -6,6 +6,9 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\ContactsListMail;
+use Illuminate\Support\Facades\Mail;
+
 class ContactController extends Controller
 {
 public function index()
@@ -26,5 +29,14 @@ $request->validate([
 Contact::create($request->only('name', 'phone'));
 return redirect()->route('contacts.index')->with('success', 'Contact
 added successfully!');
+}
+
+public function sendEmail()
+{
+    $contacts = \App\Models\Contact::all();
+
+    Mail::to('marta.roiloa-garcis@stud.svako.lt')->send(new ContactsListMail($contacts));
+
+    return back()->with('success', 'Contacts list sent by email!');
 }
 }

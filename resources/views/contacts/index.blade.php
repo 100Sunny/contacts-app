@@ -15,3 +15,7 @@
 @endauth
 </div>
 @endsection
+<a href="{{ route('contacts.send.email') }}" 
+   class="btn btn-primary">
+   Send Contacts to Email
+</a>
