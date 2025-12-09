@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\PDFController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,3 +34,5 @@ Route::delete('students/{id}/forceDelete', [StudentsController::class, 'forceDel
 Route::resource('students', StudentsController::class);
 
 Route::post('/send-contacts-email', [ContactController::class, 'sendEmail'])->name('contacts.send.email');
+
+Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
