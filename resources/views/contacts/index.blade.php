@@ -15,7 +15,9 @@
 @endauth
 </div>
 @endsection
-<a href="{{ route('contacts.send.email') }}" 
-   class="btn btn-primary">
-   Send Contacts to Email
-</a>
+<form action="{{ route('contacts.send.email') }}" method="POST">
+    @csrf 
+    <button type="submit" class="btn btn-primary">
+        Send Contacts to Email
+    </button>
+</form>

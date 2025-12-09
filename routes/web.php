@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\StudentsController;
 
@@ -31,4 +32,4 @@ Route::delete('students/{id}/forceDelete', [StudentsController::class, 'forceDel
 //Route::get('/students', [StudentsController::class, 'index']);
 Route::resource('students', StudentsController::class);
 
-Route::get('/send-contacts-email', [ContactController::class, 'sendEmail'])->name('contacts.send.email');
+Route::post('/send-contacts-email', [ContactController::class, 'sendEmail'])->name('contacts.send.email');
