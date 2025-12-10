@@ -21,3 +21,10 @@
         Send Contacts to Email
     </button>
 </form>
+
+<form action="{{ route('contacts.send.report') }}" method="POST">
+    @csrf
+    <button type="submit">
+        Enviar Reporte PDF al Email
+    </button>
+</form>

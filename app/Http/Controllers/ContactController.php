@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mail\ContactsListMail;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\PDFMail;
 
 class ContactController extends Controller
 {
@@ -38,5 +39,11 @@ public function sendEmail()
     Mail::to('marta.roiloa-garcis@stud.svako.lt')->send(new ContactsListMail($contacts));
 
     return back()->with('success', 'Contacts list sent by email!');
+}
+public function sendReportEmail()
+{
+    Mail::to('test@example.com')->send(new PDFMail());
+
+    return back()->with('success', 'El reporte en PDF ha sido enviado por correo.');
 }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\PDFController;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -36,3 +37,4 @@ Route::resource('students', StudentsController::class);
 Route::post('/send-contacts-email', [ContactController::class, 'sendEmail'])->name('contacts.send.email');
 
 Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
+Route::post('/send-data-report', [ContactController::class, 'sendReportEmail'])->name('contacts.send.report');
