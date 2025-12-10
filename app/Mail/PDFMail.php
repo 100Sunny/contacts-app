@@ -19,7 +19,7 @@ class PDFMail extends Mailable
         $pdf = Pdf::loadView('pdf.contacts_list_pdf', compact('contacts'));
 
         return $this->subject('Reporte de Contactos Registrados')
-                    ->view('emails.list_report_email') 
+                    ->view('emails.pdfmail') 
                     ->attachData($pdf->output(), "lista_de_contactos.pdf", [
                         'mime' => 'application/pdf',
                     ]);

@@ -44,6 +44,6 @@ public function sendReportEmail()
 {
     Mail::to('test@example.com')->send(new PDFMail());
 
-    return back()->with('success', 'El reporte en PDF ha sido enviado por correo.');
+    return back()->with('success', 'The PDF report has been sent by email!');
 }
 }
